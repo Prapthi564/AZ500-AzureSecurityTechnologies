@@ -198,7 +198,7 @@ In this task, you will create a user account for Isabel Garcia by using PowerShe
 
 In this task, you will create the Junior Admins group and add the user account of Isabel Garcia to the group by using PowerShell.
 
-1. In the same PowerShell session within the Cloud Shell pane, run the following to create a new security group named Junior Admins:
+1. In the same PowerShell session within the Cloud Shell pane, run the following to **create a new security group** named Junior Admins:
 	
     ```powershell
     New-AzureADGroup -DisplayName 'Junior Admins' -MailEnabled $false -SecurityEnabled $true -MailNickName JuniorAdmins
@@ -344,9 +344,9 @@ In this exercise, you will complete the following task:
 
 1. On the **Resource groups** blade, click on the **AZ500LAB01** resource group entry.
 
-1. On the **AZ500Lab01** blade, click on **Access control (IAM)**.
+1. On the **AZ500LAB01** blade, click on **Access control (IAM)**.
 
-1. On the **AZ500Lab01 \| Access control (IAM) (1)** blade, click on **+ Add (2)** and then, in the drop-down menu, click on **Add role assignment (3)**.
+1. On the **AZ500LAB01 \| Access control (IAM) (1)** blade, click on **+ Add (2)** and then, in the drop-down menu, click on **Add role assignment (3)**.
 
    ![image](../images/az500-26.png)
 
