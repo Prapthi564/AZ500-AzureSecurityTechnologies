@@ -56,7 +56,7 @@ In this task, you will create a user account for Joseph Price.
 
     - Click on the **copy icon (3)** next to the **User principal name** to copy the full username, and pasted it somewhere.
 
-    - Ensure that the **Auto-generate (4)** password is selected, and click on the copy icon next to **Password (5)** and paste it somewhere. You would need to provide this password, along with the user name to Joseph. 
+    - Ensure that the **Auto-generate password (4)** is selected, and click on the copy icon next to **Password (5)** and paste it somewhere. You would need to provide this password, along with the user name to Joseph. 
 
     - Click on **Review + create (6)**, and then click on **Create**.
 
