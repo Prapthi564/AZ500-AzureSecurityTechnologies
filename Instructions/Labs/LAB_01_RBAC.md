@@ -56,9 +56,9 @@ In this task, you will create a user account for Joseph Price.
 
     - Click on the **copy icon (3)** next to the **User principal name** to copy the full username, and pasted it somewhere.
 
-    - Ensure that the **Auto-generate password (4)** is selected, and click on the copy icon next to **Password (5)** and paste it somewhere. You would need to provide this password, along with the user name to Joseph. 
+    - Ensure that the **Auto-generate password (4)** is selected, select the **Show password (5)** checkbox to identify the automatically generated password and click on the copy icon next to **Password (6)** and paste it somewhere. You would need to provide this password, along with the user name to Joseph. 
 
-    - Click on **Review + create (6)**, and then click on **Create**.
+    - Click on **Review + create (7)**, and then click on **Create**.
 
       ![image](../images/az-500-lab1-image2.png)
 
@@ -77,7 +77,9 @@ In this task, you will create the *Senior Admins* group, add the user account of
    ![image](../images/az500-6.png)
 
 1. Select **+ New group**.
- 
+
+    ![image](../images/az500-new-group.png)
+
 1. On the **New Group** blade, specify the following settings (leave others with their default values):
 
    |Setting|Value|
@@ -131,7 +133,7 @@ In this task, you will create a user account for Isabel Garcia by using PowerShe
 
     - **Subscription**: **Leave the default (1)** 
     
-    - **Resource group:** **ODL-AZ-500-L1-<inject key="DeploymentID" enableCopy="false" />-AZ500LAB01(2)**
+    - **Resource group:** **AZ500LAB01 (2)**
     
     - **Storage account:** Enter **str<inject key="DeploymentID" enableCopy="false" /> (3)** 
     
@@ -255,6 +257,8 @@ In this task, you will create a user account for Dylan Williams.
 
 1. Click on **Confirm**. 
 
+    ![image](../images/az500-bash-confirm.png)
+
 1. In the Bash session within the Cloud Shell pane, run the following commands to identify the name of your Microsoft Entra tenant:
 
     ```cli
@@ -362,7 +366,7 @@ In this exercise, you will complete the following task:
 
 1. On the Add role assignment page, provide the following deatils.
 
-    - Assign access to (Under Members Pane)**User, group, or service principal (1)**
+    - Assign access to (Under Members Pane) **User, group, or service principal (1)**
 
     - Select **+Select Members (2)**
     
@@ -376,15 +380,15 @@ In this exercise, you will complete the following task:
 
 1. From the **Access control (IAM)** blade, click on the **Check access** tab.
 
-1. On the **AZ500Lab01 \| Access control (IAM) (1)** blade, click on the **Check access (2)** button under check access, and then in the **Search by name or email address** text box, type **Dylan Williams (3)**.
+1. On the **AZ500LAB01 \| Access control (IAM) (1)** blade, click on the **Check access (2)** button under check access, and then in the **Search by name or email address** text box, type **Dylan Williams (3)**.
 
       ![image](../images/az-500-lab1-image6.png)
 
-1. In the list of search results, select the user account of Dylan Williams and, on the **Dylan Williams assignments - AZ500Lab01** blade, view the newly created assignment.
+1. In the list of search results, select the user account of Dylan Williams and, on the **Dylan Williams assignments - AZ500LAB01** blade, view the newly created assignment.
 
    ![image](../images/az500-28.png)
 
-1. Close the **Dylan Williams assignments - AZ500Lab01** blade.
+1. Close the **Dylan Williams assignments - AZ500LAB01** blade.
 
 1. Repeat the same last two steps to check access for **Joseph Price**. 
 
