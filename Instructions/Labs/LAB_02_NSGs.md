@@ -39,7 +39,7 @@ In this task, you will create a virtual network to use with the network and appl
 
    ![image](../images/az500lab7-1.png)
 
-1. On the **Virtual networks** blade, click **+ Create**.
+1. On the **Netowork foundation | Virtual networks** blade, click **+ Create**.
 
    ![image](../images/az500lab7-2.png)
 
@@ -54,20 +54,24 @@ In this task, you will create a virtual network to use with the network and appl
 
     ![image](../images/az500lab7-3.png)
 
-1. On the **IP addresses** tab of the **Create virtual network** blade, set the **IPv4 address space** to **10.0.0.0/16**, if it is not yet set and if needed, in the **Subnet name** column, click **default**, on the **Edit subnet** blade, specify the following settings and click **Save**:
+1. On the **IP addresses** tab of the **Create virtual network** blade, set the **IPv4 address space** to **10.0.0.0/16 (1)**, if it is not yet set and if needed. In the **Subnet name** column, click **default (2)**, on the **Edit subnet** blade, specify the following settings and click **Save (5)**:
 
     |Setting|Value|
     |---|---|
-    |Subnet name|**default**|
-    |Subnet address range|**10.0.0.0/24**|
+    |Subnet name|**default (3)**|
+    |Size|**/24 (256 addresses) (4)**|
 
     >**Note:** If the **default** subnet is not there in the subnet section, then you have to create it. Click on **+ Add subnet**, then follow this given instructions, and click on **Add**.
+
+    ![image](../images/az500lab7-111.png)
 
 1. Back on the **IP addresses** tab of the **Create virtual network** blade, click **Review + create**.
 
    ![image](../images/az500lab7-4.png)
 
 1. On the **Review + create** tab of the **Create virtual network** blade and then click **Create**.
+
+   ![image](../images/az500lab7-112.png)
 
 ## Task 2:  Create application security groups
 
@@ -77,7 +81,9 @@ In this task, you will create an application security group.
 
    ![image](../images/az500lab7-5.png)
 
-1. On the **Application security groups** blade, click **+ Create**.
+1. On the **Network foundation | Application security groups** blade, click **+ Create**.
+
+   ![image](../images/az500lab7-113.png)
 
 1. On the **Basics** tab of the **Create an application security group** blade, specify the following settings and then click on **Review + create (5)**.
 
@@ -94,9 +100,11 @@ In this task, you will create an application security group.
 
 1. Then click on **Create**.
 
-1. Navigate back to the **Application security groups** blade and click **+ Create**.
+   ![image](../images/az500lab7-114.png)
 
-    ![image](../images/az500lab7-7.png)   
+1. Navigate back to the **Network foundation | Application security groups** blade and click **+ Create**.
+
+    ![image](../images/az500lab7-7.png)
 
 1. On the **Basics** tab of the **Create an application security group** blade, specify the following settings and then click on **Review + create (5)**.
 
@@ -113,6 +121,8 @@ In this task, you will create an application security group.
 
 1. Then click **Create**.
 
+   ![image](../images/az500lab7-115.png)
+
 ## Task 3:  Create a network security group and associate the NSG to the subnet
 
 In this task, you will create a network security group. 
@@ -121,7 +131,9 @@ In this task, you will create a network security group.
 
     ![image](../images/az500lab7-9.png)   
 
-1. On the **Network security groups** blade, click **+ Create**.
+1. On the **Network foundaton | Network security groups** blade, click **+ Create**.
+
+   ![image](../images/az500lab7-116.png)
 
 1. On the **Basics** tab of the **Create network security group** blade, specify the following settings and then click on **Review+Create (5)**.
 
@@ -136,7 +148,11 @@ In this task, you will create a network security group.
 
 1. Then click **Create**.
 
+   ![image](../images/az500lab7-117.png)
+
 1. After deployment succeeded, click on **Go to resources**.
+
+   ![image](../images/az500lab7-118.png)
 
 1. On the **myNsg** blade, in the **Settings** section, click **Subnets (1)** and then click **+ Associate (2)**.
 
@@ -149,7 +165,7 @@ In this task, you will create a network security group.
     |Virtual network|**myVirtualNetwork (1)**|
     |Subnet|**default (2)**|
     
-    ![image](../images/az500lab7-12.png)   
+    ![image](../images/az500lab7-12.png)
 
 ## Task 4: Create inbound NSG security rules to all traffic to web servers and RDP to the servers. 
 
@@ -181,8 +197,8 @@ In this task, you will create a network security group.
     |Destination|select **Application security group (1)** from the drop down|
     |Destination application security groups |**myAsgMgmtServers (2)** from the drop down|    
     |Service|Choose **RDP (3)**|      
-    |Destination port ranges|Ensure **3389**|
-    |Protocol|Ensure **TCP**|
+    |Destination port ranges| **3389**|
+    |Protocol|**TCP** |
     |Priority|**110 (4)**|                                                
     |Name|**Allow-RDP-All (5)**|
 
@@ -207,9 +223,9 @@ In this task, you will create a virtual machine to use as a web server.
 
     ![image](../images/az500lab7-16.png)   
 
-1. On the **Virtual machines** blade, click **+ Create (1)** and, in the dropdown list, click **+ Azure Virtual machine (2)**.
+1. On the **Computer infrastructure | Virtual machines** blade, click **+ Create (1)** and, in the dropdown list, click **Virtual machine (2)**.
 
-    ![image](../images/az500lab7-17.png)   
+    ![image](../images/az500lab7-17.png)
 
 1. On the **Basics** tab of the **Create a virtual machine** blade, specify the following settings (leave others with their default values) and then click on **Next: Disks >(15)**.
 
@@ -247,6 +263,8 @@ In this task, you will create a virtual machine to use as a web server.
 
    ![image](../images/az500lab7-20.png)
 
+   > **Note:** Make sure **default** subnet with **myVmWeb-ip** Public IP is selected.
+
 1. On the **Management** tab, click on **Next: Monitoring>**.
 
 1. On the **Monitoring** tab of the **Create a virtual machine** blade, verify the following setting and then click on **Review + create (2)**.
@@ -257,7 +275,7 @@ In this task, you will create a virtual machine to use as a web server.
 
    ![image](../images/az500lab7-21.png)   
 
-1. Ensure that validation was successful and click **Create**.
+1. Ensure that validation was successful and click on **Create** to proceed.
 
    ![image](../images/az500lab7-23.png)
 
@@ -265,7 +283,9 @@ In this task, you will create a virtual machine to use as a web server.
 
 In this task, you will create a virtual machine to use as a management server.
 
-1. In the Azure portal, navigate back to the **Virtual machines** blade, click **+ Create**, and, in the dropdown list, click **+ Azure Virtual machine**.
+1. In the Azure portal, navigate back to the **Compute infrastructure | Virtual machines** blade, click **+ Create (1)**, and, in the dropdown list, click **Virtual machine (2)**.
+
+   ![image](../images/az500lab7-119.png)
 
 1. On the **Basics** tab of the **Create a virtual machine** blade, specify the following settings (leave others with their default values) and then click on **Next: Disks > (15)**
 
@@ -299,7 +319,7 @@ In this task, you will create a virtual machine to use as a management server.
 
    ![image](../images/az500lab7--26.png)
 
-1. On the **Networking** tab of the **Create a virtual machine** blade, select the previously created network **myVirtualNetwork (1)**. Under **NIC network security group** select **None (1)** and then navigate to **Monitoring (3)** tab.
+1. On the **Networking** tab of the **Create a virtual machine** blade, select the previously created network **myVirtualNetwork (1)** along with Subnet as **default (2)** and Public IP **myVMMgmt-ip (3)**. Under **NIC network security group**, select **None (4)** and then navigate to **Monitoring (5)** tab.
 
    ![image](../images/az500lab7-27.png)
 
@@ -313,17 +333,19 @@ In this task, you will create a virtual machine to use as a management server.
 
 1. Ensure that validation was successful and click **Create**.
 
+   ![image](../images/az500lab7-120.png)
+
     >**Note**: Wait for both virtual machines to be provisioned before continuing. 
 
 ## Task 3: Associate each virtual machines network interface to its application security group.
 
 In this task, you will associate each virtual machine's network interface with the corresponding application security group. The myVmWeb virtual machine interface will be associated to the myAsgWebServers ASG. The myVMMgmt virtual machine interface will be associated to the myAsgMgmtServers ASG. 
 
-1. In the Azure portal, navigate back to the **Virtual machines** blade and verify that both virtual machines are listed with the **Running** status.
+1. In the Azure portal, navigate back to the **Compute infrastructure | Virtual machines** blade and verify that both virtual machines are listed with the **Running** status.
 
    ![image](../images/az500lab7-29.png)    
 
-1. In the list of virtual machines, click the **myVmWeb** entry.
+1. In the list of virtual machines, click the **myVmWeb** virtual machine.
 
    ![image](../images/az500lab7--30.png)  
 
@@ -335,7 +357,7 @@ In this task, you will associate each virtual machine's network interface with t
 
    ![image](../images/az500lab7-32.png)  
 
-1. Navigate back to the **Virtual machines** blade and in the list of virtual machines, click the **myVMMgmt** entry.
+1. Navigate back to the **Compute infrastructure | Virtual machines** blade and in the list of virtual machines, click the **myVMMgmt** virtual machine.
 
 1. On the **myVMMgmt** blade, in the **Networking** section, select **Application security groups (1)** an then click on **+ Application security groups (2)**.
 
@@ -356,7 +378,7 @@ In this task, you will test the network traffic filters. You should be able to R
 
    ![image](../images/az500lab7-35.png)  
 
-1. Click **RDP** then **Download RDP File**.
+1. Click on **Download RDP File**.
 
    ![image](../images/lab1-17.png)
 
