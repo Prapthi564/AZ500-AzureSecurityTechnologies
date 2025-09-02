@@ -88,7 +88,7 @@ In this task you will deploy the Azure firewall into the virtual network.
 
    ![image](../images/az500lab8-6.png)
 
-1. On the **Firewalls** blade, click **+ Create**.
+1. On the **Network security| Azure Firewalls** blade, click **+ Create**.
 
    ![image](../images/az500lab8-7.png)
 
@@ -99,7 +99,7 @@ In this task you will deploy the Azure firewall into the virtual network.
    |Subscription|**Leave the default Subscription (1)**|   
    |Resource group|**AZ500LAB03 (2)**|
    |Name|**Test-FW01 (3)**|
-   |Region|**(US) East US (4)**|
+   |Region|**East US (4)**|
    |Firewall SKU|**Standard (5)**|
 
     ![image](../images/az500lab8-8.png)  
@@ -150,7 +150,9 @@ In this task, you will create a default route for the **Workload-SN** subnet. Th
 
     ![image](../images/az500lab8-15.png)  
 
-1. On the **Route tables** blade, click **+ Create**.
+1. On the **Netowrk foundation | Route tables** blade, click **+ Create**.
+
+    ![image](../images/az500lab8-111.png)
 
 1. On the **Create route table** blade, specify the following settings and then click on **Review+create (5)**.
 
@@ -276,13 +278,13 @@ In this task, you will configure the primary and secondary DNS addresses for the
 
     ![image](../images/az500lab8-25.png)  
 
-1. On the **Srv-Work** blade, in the **Networking** section, click **Networking Settings**. On the **Srv-Work \| Networking Settings** blade, click the link next to the **Network interface** entry.
+1. On the **Srv-Work** blade, in the **Networking** section, click **Networking Settings**. On the **Srv-Work \| Networking Settings (1)** blade, click the link next to the **Network interface (2)** entry.
 
     ![image](../images/az500lab8-26.png)  
 
-1. On the network interface blade, in the **Settings** section, click **DNS servers (1)**, select the **Custom** option, add the two DNS servers referenced in the network rule: `209.244.0.3` and `209.244.0.4` **(2)**, and click **Save (3)** to save the change.
+1. On the network interface blade, in the **Settings** section, click **DNS servers (1)**, select the **Custom (2)** option, add the two DNS servers referenced in the network rule: `209.244.0.3` and `209.244.0.4` **(3)**, and click **Save (4)** to save the change.
 
-    ![image](../images/az500lab8-27.png)  
+    ![image](../images/az500lab8-27.png)
 
 1. Return to the **Srv-Work** virtual machine page.
 
