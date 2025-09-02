@@ -12,7 +12,7 @@ In this lab, you will complete the following exercise:
 
 - Exercise 1: Service endpoints and security storage
 
-## Estimated timing: 45 minutes
+## Estimated timing: 45 Minutes
 
 ## Architecture Diagram
 
@@ -30,7 +30,9 @@ In this task, you will create a virtual network.
 
    ![image](../images/az500lab12-1.png)
 
-1. On the **Virtual Networks** blade, click **+ Create**.
+1. On the **Network foundation | Virtual Networks** blade, click **+ Create**.
+
+     ![image](../images/AZ-500-l6-1.png)
 
 1. On the **Basics** tab of the **Create virtual network** blade, specify the following settings (leave others with their default values) and click on **IP Addresses (5)** tab.
 
@@ -54,19 +56,23 @@ In this task, you will create a virtual network.
 
 1. On the **Review + create** tab of the **Create virtual network** blade, click **Create**.
 
+     ![image](../images/AZ-500-l6-2.png)
+
     >**Note**:If you are not able to edit the **default** first create the virtual network and go to subnets in created Virtual network and delete the Default Subnet and add **Public** Subnet 
 
 1. Click on **Go to resources**.    
+
+     ![image](../images/AZ-500-l6-3.png)
 
 ### Task 2: Add a subnet to the virtual network and configure a storage endpoint
 
 In this task, you will create another subnet and enable a service endpoint on that subnet. Service endpoints are enabled per service, per subnet. 
 
-1. On the **myVirtualNetwork** blade, in the **Settings** section, click **Subnets**.
+1. On the **myVirtualNetwork** blade, in the **Settings (1)** section, click **Subnets (2)**.
 
-1. On the **myVirtualNetwork \| Subnets (1)** blade, click **+ Subnet (2)**. 
+1. On the **myVirtualNetwork \| Subnets** blade, click **+ Subnet (3)**. 
 	
-	![image](../images/new-lab06-2.png)
+	![image](../images/AZ-500-l6-4.png)
 	
 1. On the **Add subnet** blade, specify the following settings (leave others with their default values) and then click on **Add (3)**.
 
@@ -86,9 +92,11 @@ In this task, you will create a network security group with two outbound securit
 
 1. In the Azure portal, in the **Search resources, services, and docs** text box at the top of the Azure portal page, type **Network security groups (1)** and select **Network security groups (2)** from the services.
 
-	![image](../images/az500lab12-5.png)
+	![image](../images/AZ-500-l6-5.png)
 
-1. On the **Network security groups** blade, click **+ Create**.
+1. On the **Network foundation | Network security groups** blade, click **+ Create**.
+
+     ![image](../images/AZ-500-l6-6.png)
 
 1. On the **Basics** tab of the **Create network security group** blade, specify the following settings and then click on **Review+create (5)**.
 
@@ -103,13 +111,19 @@ In this task, you will create a network security group with two outbound securit
 
 1. Once the validation is passed, click **Create**.
 
+     ![image](../images/AZ-500-l6-7.png)
+
     >**Note**: In the next steps, you will create an outbound security rule that allows communication to the Azure Storage service. 
 
 1. Click on **Go to resources**.    
 
-1. On the **myNsgPrivate** blade, in the **Settings** section, click **Outbound security rules**.
+     ![image](../images/AZ-500-l6-8.png)
 
-1. On the **myNsgPrivate \| Outbound security rules** blade, click **+ Add**.
+1. On the **myNsgPrivate** blade, in the **Settings (1)** section, click **Outbound security rules (2)**.
+
+1. On the **myNsgPrivate \| Outbound security rules** blade, click **+ Add (3)**.
+
+     ![image](../images/AZ-500-l6-9.png)
 
 1. On the **Add outbound security rule** blade, specify the following settings to explicitly allow outbound traffic to Azure Storage (leave all other values with their default settings) and then click **Add (11)**.
 
@@ -147,7 +161,7 @@ In this task, you will create a network security group with two outbound securit
     |Priority|**1100 (9)**|
     |Name|**Deny-Internet-All (10)**|
 	
-	![image](../images/az500lab12-9.png)
+	![image](../images/AZ-500-l6-10.png)
 
 	![image](../images/az500lab12-10.png)    
 
@@ -163,17 +177,21 @@ In this task, you will create a network security group with two outbound securit
 
     |Setting|Value|
     |---|---|
-    |Source|**Any**|
-    |Source port ranges|**\***|
-    |Destination|**Service Tag**|
-    |Destination service tag|**VirtualNetwork**|
-    |Destination port ranges|**3389**|
-    |Protocol|**TCP**|
-    |Action|**Allow**|
-    |Priority|**1200**|                                                    
-    |Name|**Allow-RDP-All**|
+    |Source|**Any (1)**|
+    |Source port ranges|**\* (2)**|
+    |Destination|**Service Tag (3)**|
+    |Destination service tag|**VirtualNetwork (4)**|
+    |Destination port ranges|**3389 (5)**|
+    |Protocol|**TCP (6)**|
+    |Action|**Allow (7)**|
+    |Priority|**1200 (8)**|                                                    
+    |Name|**Allow-RDP-All (9)**|
 
-1. On the **Add inbound security rule** blade, click **Add** to create the new inbound rule. 
+    ![image](../images/AZ-500-l6-11.png)
+
+    ![image](../images/AZ-500-l6-12.png)
+
+1. On the **Add inbound security rule** blade, click **Add (10)** to create the new inbound rule. 
 
     >**Note**: Now you will associate the network security group with the Private subnet.
 
@@ -192,9 +210,11 @@ In this task, you will create a network security group with one inbound security
 
 1. In the Azure portal, in the **Search resources, services, and docs** text box at the top of the Azure portal page, type **Network security groups (1)** and select **Network security groups (2)** from the services.
 
-	![image](../images/az500lab12-5.png)
+	![image](../images/AZ-500-l6-5.png)
 
-1. On the **Network security groups** blade, click **+ Create**.
+1. On the **Network foundation | Network security groups** blade, click **+ Create**.
+
+     ![image](../images/AZ-500-l6-6.png)
 
 1. On the **Basics** tab of the **Create network security group** blade, specify the following settings and then click on **Review + create (5)**.
 
@@ -221,17 +241,21 @@ In this task, you will create a network security group with one inbound security
 
     |Setting|Value|
     |---|---|
-    |Source|**Any**|
-    |Source port ranges|**\***|
-    |Destination|**Service Tag**|
-    |Destination service tag|**VirtualNetwork**|
-    |Destination port ranges|**3389**|
-    |Protocol|**TCP**|
-    |Action|**Allow**|
-    |Priority|**1200**|                                                    
-    |Name|**Allow-RDP-All**|
+    |Source|**Any (1)**|
+    |Source port ranges|**\* (2)**|
+    |Destination|**Service Tag (3)**|
+    |Destination service tag|**VirtualNetwork (4)**|
+    |Destination port ranges|**3389 (5)**|
+    |Protocol|**TCP (6)**|
+    |Action|**Allow (7)**|
+    |Priority|**1200 (8)**|                                                    
+    |Name|**Allow-RDP-All (9)**|
 
-1. On the **Add inbound security rule** blade, click **Add** to create the new inbound rule. 
+    ![image](../images/AZ-500-l6-13.png)
+
+    ![image](../images/AZ-500-l6-14.png)
+
+1. On the **Add inbound security rule** blade, click **Add (10)** to create the new inbound rule. 
 
     >**Note**: Now you will associate the network security group with the Public subnet.
 
@@ -250,9 +274,11 @@ In this task, you will create a storage account with a file share and obtain the
 
 1. In the Azure portal, in the **Search resources, services, and docs** text box at the top of the Azure portal page, type **Storage accounts (1)** and select **Storage accounts (2)** from the services.
 
-	![image](../images/az500lab12-18.png)
+	![image](../images/AZ-500-l6-15.png)
 
-2. On the **Storage accounts** blade, click **+ Create**.
+2. On the **Storage center | Storage accounts (Blobs)** blade, click **+ Create**.
+
+     ![image](../images/AZ-500-l6-16.png)
 
 3. On the **Basics** tab of the **Create storage account** blade, specify the following settings (leave others with their default values) and then click on **Review+create (7)**.
 
@@ -265,11 +291,13 @@ In this task, you will create a storage account with a file share and obtain the
     |Performance|**Standard (general-purpose v2 account) (5)**|
     |Redundancy|**Locally redundant storage (LRS) (6)**|
 
-	![image](../images/az500lab12-19.png)    
+	![image](../images/AZ-500-l6-17.png)    
     
      >**Note**: **DeploymentID** can be found under the **Environment Details** tab.
 
 4. Wait for the validation process to complete, and then click **Create**.
+
+     ![image](../images/AZ-500-l6-18.png)
 
     >**Note**: Wait for the Storage account to be created. This should take about 2 minutes.
 
@@ -279,9 +307,11 @@ In this task, you will create a storage account with a file share and obtain the
 
 6. On the **Resource groups** blade, in the list of resource group, click the **AZ500LAB06** entry.
 
+     ![image](../images/AZ-500-l6-19.png)
+
 7. On the **AZ500LAB06** resource group blade, in the list of resources, click the entry representing the newly created storage account.
 
-	![image](../images/az500lab12-21.png) 
+	![image](../images/AZ-500-l6-20.png)
 
 8. On the storage account **Overview** blade, click **File Shares (1)** under the **Data storage** tab, and then click **+ File Share (2)**.
 
@@ -305,7 +335,7 @@ In this task, you will create a storage account with a file share and obtain the
 
 12. You will be redirected to the newly created file share. On the **my-file-share** blade, click **Connect**.
 
-    ![image](../images/az500lab12-23.png)
+    ![image](../images/AZ-500-l6-38.png)
 
 13. On the **Connect** blade, on the **Windows** tab, click on **Show Script** and copy the PowerShell script that creates a Z drive mapping to the file share. 
 
@@ -313,11 +343,13 @@ In this task, you will create a storage account with a file share and obtain the
     
     ![image](../images/az500lab12-24.png)
 
-14. Navigate back to the storage account blade, then in the **Security + networking** section, click **Networking (1)**.
+14. Navigate back to the storage account blade, then in the **Security + networking (1)** section, click **Networking (2)**.
 	
-15. Under **Firewalls and virtual networks** blade, select the **Enabled from selected virtual networks and IP addresses (2)** option and click the **+ Add existing virtual network (3)** link. 
+    ![image](../images/AZ-500-l6-21.png)
 
-    ![image](../images/az500lab12-25.png)
+15. Under the **Public access** section, click **Manage (3)**. On the **Public network access** pane, select **Enable from selected networks (1)**, then click **+ Add a virtual network (2)** and choose **Add existing virtual network (3)**.
+
+    ![image](../images/AZ-500-l6-22.png)
 
 16. On the **Add networks** blade, specify the following settings, then click on **Enable (4)**.
 
@@ -333,6 +365,8 @@ In this task, you will create a storage account with a file share and obtain the
 
 18. Back on the storage account blade, click **Save**.
 
+    ![image](../images/AZ-500-l6-23.png)
+
     >**Note**: At this point in the lab you have configured a virtual network, a network security group, and a storage account with a file share. 
 
 ### Task 6: Deploy virtual machines into the designated subnets
@@ -345,9 +379,9 @@ In this task, you will create two virtual machines one in the Private subnet and
 
     ![image](../images/az500lab12-27.png)   
 
-1. On the **Virtual machines** blade, click **+ Create (1)** and, in the dropdown list, click **+ Azure Virtual machine (2)**.
+1. On the **Compute infrastructure | Virtual machines** blade, click **+ Create (1)** and, in the dropdown list, select **Virtual machine (2)**.
 
-    ![image](../images/az500lab12-28.png)   
+    ![image](../images/AZ-500-l6-24.png)  
 
 1. On the **Basics** tab of the **Create a virtual machine** blade, specify the following settings (leave others with their default values) and then click on **Next: Disks > (10)**
 
@@ -390,22 +424,30 @@ In this task, you will create two virtual machines one in the Private subnet and
 
     >**Note**: The second virtual machine will be connected to the Public subnet.
 
-1. On the **Virtual machines** blade, click **+ Add** and, in the dropdown list, click **+ Azure Virtual machine**.
+1. On the **Compute infrastructure | Virtual machines** blade, click **+ Create (1)** and, in the dropdown list, select **Virtual machine (2)**.
+
+    ![image](../images/AZ-500-l6-24.png)  
 
 1. On the **Basics** tab of the **Create a virtual machine** blade, specify the following settings (leave others with their default values):
 
     |Setting|Value|
     |---|---|
-    |Subscription|the name of the Azure subscription you will be using in this lab|
-    |Resource group|**AZ500LAB06**|
-    |Virtual machine name|**myVmPublic**|
-    |Region|**(US)East US**|
-    |Image|**Windows Server 2022 Datacenter: Azure Edition - Gen 2**|
-    |Username|**localadmin**|
-    |Password|**Pa55w.rd1234**|
-    |Confirm password|**Pa55w.rd1234**|
-    |Public inbound ports|**None**|
+    |Subscription|the name of the Azure subscription you will be using in this lab **(1)**|
+    |Resource group|**AZ500LAB06 (2)**|
+    |Virtual machine name|**myVmPublic (3)**|
+    |Region|**(US)East US (4)**|
+    |Image|**Windows Server 2022 Datacenter: Azure Edition -x64 Gen 2 (5)**|
+    |Username|**localadmin (6)**|
+    |Password|**Pa55w.rd1234 (7)**|
+    |Confirm password|**Pa55w.rd1234 (8)**|
+    |Public inbound ports|**None (9)**|
     
+    ![image](../images/AZ-500-l6-25.png)  
+
+    ![image](../images/AZ-500-l6-26.png) 
+
+    ![image](../images/az500lab12-31.png)   
+
     >**Note**: For public inbound ports, we will rely on the precreated NSG. 
 
 1. Click **Next: Disks >** and, on the **Disks** tab, set the **OS disk type** to **Standard HDD** and click **Next: Networking >**.
@@ -419,7 +461,7 @@ In this task, you will create two virtual machines one in the Private subnet and
     |Public IP|**(new)myVmPublic-ip (3)**|
     |NIC network security group|**None (4)**|
 
-    ![image](../images/az500lab12-34.png)       
+    ![image](../images/AZ-500-l6-27.png)       
 
 1. On the **Review + create** blade, ensure that validation was successful and click **Create**.
 
@@ -431,17 +473,17 @@ In this task, you will connect to the myVMPrivate virtual machine via Remote Des
 
 1. Navigate back to the **Virtual machines** blade. 
 
-1. On the **Virtual machines** blade, click the **myVMPrivate** entry.
+1. On the **Compute infrastructure | Virtual machines** blade, click the **myVMPrivate** entry.
 
-    ![image](../images/az500lab12-36.png)  
+    ![image](../images/AZ-500-l6-28.png)  
 
-1. On the **myVMPrivate** blade, click **Connect** and, in the drop down menu, select **Connect**.
+1. On the **myVMPrivate** blade, click **Connect (1)** and, in the drop down menu, select **Connect (2)**.
 
-    ![image](../images/az500lab12-37.png)  
+    ![image](../images/AZ-500-l6-29.png)
 
 1. Click **Download RDP File** and use it to connect to the **myVMPrivate** Azure VM via Remote Desktop. 
 
-    ![image](../images/az500lab12-38.png)  
+    ![image](../images/AZ-500-l6-30.png)  
 
 1. Click on **Keep** for the warning pop up.
 
@@ -453,7 +495,7 @@ In this task, you will connect to the myVMPrivate virtual machine via Remote Des
 
 1. Click on **Connect**.
 
-   ![image](../images/az500lab7-38.png)  
+   ![image](../images/AZ-500-l6-31.png)   
 
 1. On the **Windows Security** pop up, click on **More choices.**
 
@@ -476,11 +518,13 @@ In this task, you will connect to the myVMPrivate virtual machine via Remote Des
 
     >**Note**: You will now map drive Z to an Azure File share within the Remote Desktop session to a Windows Server 2022 computer
     
-1. Click on **Yes** to connect to the RDP.    
+1. In the **Remote Desktop Connection** security warning dialog, click **Yes**.   
 
-1. Within the Remote Desktop session to **myVMPrivate**, click **Start** and then click **Windows PowerShell ISE**.
+    ![image](../images/AZ-500-l6-32.png)  
 
-    ![image](../images/az500lab12-41.png) 
+1. Within the Remote Desktop session to **myVMPrivate**, type **Windows PowerShell ISE (1)** in the Start menu search box, and then click **Windows PowerShell ISE (2)** from the results.
+
+    ![image](../images/AZ-500-l6-39.png) 
 
 1. Within the **Windows PowerShell ISE** window, open the **Script** pane. Click on **File (1) -> New (2)**.
 
@@ -527,11 +571,17 @@ In this task, you will connect to the myVMPrivate virtual machine via Remote Des
 
 1. Navigate back to the **Virtual machines** blade. 
 
-1. On the **Virtual machines** blade, click the **myVMPublic** entry.
+1. On the **Compute infrastructure | Virtual machines** blade, click the **myVMPublic** entry.
 
-1. On the **myVMPublic** blade, click **Connect** and, in the drop down menu, click **Connect**. 
+    ![image](../images/AZ-500-l6-37.png) 
+
+1. On the **myVMPublic** blade, click **Connect (2)** and, in the drop down menu, click **Connect (1)**. 
+
+    ![image](../images/AZ-500-l6-33.png) 
 
 1. Click **Download RDP File** and use it to connect to the **myVMPublic** Azure VM via Remote Desktop.
+
+    ![image](../images/AZ-500-l6-34.png) 
 
 1. Click on **Keep** for the warning pop up.
 
@@ -543,7 +593,7 @@ In this task, you will connect to the myVMPrivate virtual machine via Remote Des
 
 1. Click on **Connect**.
 
-   ![image](../images/az500lab7-38.png)  
+   ![image](../images/AZ-500-l6-35.png)  
 
 1. On the **Windows Security** pop up, click on **More choices.**
 
@@ -564,9 +614,13 @@ In this task, you will connect to the myVMPrivate virtual machine via Remote Des
 
     >**Note**: You will now map drive Z to an Azure File share within the Remote Desktop session to a Windows Server 2022 computer
 
-1. Click on **Yes** to connect to the RDP.    
+1. In the **Remote Desktop Connection** security warning dialog, click **Yes**.    
 
-1. Within the Remote Desktop session to **myVMPublic**, click **Start** and then click **Windows PowerShell ISE**.
+    ![image](../images/AZ-500-l6-36.png) 
+
+1. Within the Remote Desktop session to **myVMPublic**, type **Windows PowerShell ISE (1)** in the Start menu search box, and then click **Windows PowerShell ISE (2)** from the results.
+
+    ![image](../images/AZ-500-l6-39.png) 
 
 1. Within the **Windows PowerShell ISE** window, open the **Script** pane by clickin on **File->New** from the top left corner. Then **paste and run the same PowerShell script** that you ran within the Remote Desktop session to the **myVMPrivate** Azure VM.
 
@@ -593,7 +647,7 @@ In this task, you will connect to the myVMPrivate virtual machine via Remote Des
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="a34b7e41-b40a-47fc-b73d-1b8d40da1391" />
 
