@@ -10,7 +10,7 @@ You have been asked to review security features for Azure SQL database. Specific
 In this lab, you will complete the following exercise:
 - Exercise 1: Implement SQL Database security features
 
-## Estimated timing: 30 minutes
+## Estimated timing: 30 Minutes
 
 ## Architecture Diagram
 
@@ -31,11 +31,11 @@ In this task, you will use a template to deploy the lab infrastructure.
 
 1. In the Azure portal, in the **Search resources, services, and docs** text box at the top of the Azure portal page, type **Deploy a custom template (1)** and select **Deploy a custom template (2)** from the services.
    
-    ![image](../images/az500lab8-1.png)
+    ![image](../images/AZ-500-l5-1.png)
 
 1. On the **Custom deployment** blade, click the **Build your own template in the editor** option.
     
-    ![image](../images/Custom_Template.png)
+    ![image](../images/AZ-500-l5-2.png)
     
 1. On the **Edit template** blade, click **Load file**.
 
@@ -55,7 +55,7 @@ In this task, you will use a template to deploy the lab infrastructure.
    |---|---|
    |Subscription|**Leave the default Subscription (1)**|
    |Resource group|click **Create new** and type the name **AZ500LAB05** then click **OK**. **(2)**|
-   |Location|**(US) East US (3)**|
+   |Location|**East US (3)**|
 
     ![image](../images/az-500-5a3.png)  
 
@@ -65,19 +65,21 @@ In this task, you will use a template to deploy the lab infrastructure.
 
 ### Task 2: Configure Advanced Data Protection
 
-1. In the Azure portal, in the **Search resources, services, and docs** text box at the top of the Azure portal page, type **Resource groups (1)** and select **Resource groups (2)** from the service.
+1. In the Azure portal, in the **Search resources, services, and docs** text box at the top of the Azure portal page, type **Resource groups (1)** and select **Resource groups (2)** from the services.
 
     ![image](../images/az500lab11-6.png)
 
 1. On the **Resource groups** blade, in the list of resource group, click the **AZ500LAB05** entry.
 
+     ![image](../images/AZ-500-l5-3.png)
+
 1. On the **AZ500LAB05** blade, click the entry representing the newly created SQL Server.
    
-    ![image](../images/az-500-5a4.png)
+    ![image](../images/AZ-500-l5-4.png)
    
-1. On the SQL server blade, in the **Security** section, click **Microsoft Defender for Cloud (1)**, select **Enable (2)**.
+1. On the SQL server blade, in the **Security (1)** section, click **Microsoft Defender for Cloud (2)**, select **Enable (3)**.
     
-    ![image](../images/az-500-5a5.png)
+    ![image](../images/AZ-500-l5-5.png)
     
       >**Note**: Wait until notification indicates Azure Defender for SQL has been successfully enabled.
 
@@ -88,6 +90,8 @@ In this task, you will use a template to deploy the lab infrastructure.
     ![image](../images/az-500-5a14.png)
     
 1. On the **Server Settings** blade, review the information about pricing and the trial period, **VULNERABILITY ASSESSMENT SETTINGS** and **ADVANCED THREAT PROTECTION SETTINGS**.
+
+     ![image](../images/AZ-500-l5-6.png)
 
 1. Back to **Microsoft Defender for Cloud** blade, review **Recommendations** and **Security alerts**.
 
@@ -124,7 +128,7 @@ In this task, you will discover and classify information in SQL database for GPD
    
 1. Once you have completed your review click **Save**. 
 
-    ![image](../images/az500lab11-1.png)
+    ![image](../images/AZ-500-l5-7.png)
 
      >**Note**: This will complete the classification and persistently label the database columns with the new classification metadata. 
 
@@ -138,9 +142,9 @@ In this task, you will first configure server level auditing and then configure 
 
 1. In the Azure portal, navigate back to the SQL Server blade.
 
-1. On the SQL Server blade, in the **Security** section, click **Auditing (1)**.
+1. On the SQL Server blade, in the **Security (1)** section, click **Auditing (2)**.
 
-    ![image](../images/az500lab11-2.png)
+    ![image](../images/AZ-500-l5-8.png)
 
      >**Note**: This is server level auditing. The default auditing settings include all the queries and stored procedures executed against the database, as well as successful and failed logins.
 
@@ -156,7 +160,7 @@ In this task, you will first configure server level auditing and then configure 
     
     - On the **Create storage account** blade, in the **Name (1)** box, type a globally unique name consisting of between 3 and 24 lower case letters and digits, click **OK (2)**.
    
-      ![image](../images/az-500-5a10.png)
+      ![image](../images/AZ-500-l5-9.png)
 
        >**Note**: You may need to refresh the browser before the storage account becomes available.
 
@@ -184,9 +188,11 @@ In this task, you will first configure server level auditing and then configure 
 
 1. Switch back to DB, Auditing and Click **View Audit Logs**.
     
-    ![image](../images/az-500-5a13.png)
+    ![image](../images/AZ-500-l5-10.png)
     
-1. On the **Audit records** blade, note that you can switch between Server audit and Database audit. 
+1. On the **Audit records** blade, note that you can switch between **Server audit and Database audit**. 
+
+    ![image](../images/AZ-500-l5-11.png)
 
     >**Note**: Since this SQL server and database were created recently, it is unlikely that any events will be available at this point. 
 
@@ -195,7 +201,7 @@ In this task, you will first configure server level auditing and then configure 
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="b614de5a-3bf9-4457-9566-2ebbaf298146" />
    
