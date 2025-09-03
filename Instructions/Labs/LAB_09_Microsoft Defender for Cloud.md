@@ -1,4 +1,4 @@
-# Lab 09: Microsoft Defender for Cloud
+# Lab 09: Configuring Microsoft Defender for Cloud Enhanced Security Features for Servers
 
 ## Lab scenario
 
