@@ -105,45 +105,10 @@ In this task, you will implement the Microsoft Defender for Cloud recommendation
     
 
 
-
-
-
-
-
-
-
-
-
-1. In the Azure portal, navigate back to the **Microsoft Defender for Cloud \| Overview** blade, from the left navigation pane under the **Cloud Security** section select **Workload protections**.
-
-2. On the **Workload protections** blade, scroll down to **Advanced protection** section and click on **Just-in-time- VM access** tile and, click on the **Just-in-time VM access blade**.
-
-    >**Note**: If the VMs are not listed, navigate to **Virtual Machine** blade and click the **Configuration**, Click the **Enable the Just-in-time VMs** option       under the **Just-in-time Vm's access**. Repeat the above step to navigate back to the **Microsoft Defender for Cloud** and refresh the page, the VM will appear.
-
-3. On the **Just in time VM access**, select **Not Configured** tab and then Select **myVM** entry.
-
-    >**Note**: You might have to wait a few minutes before the **myVM** entry becomes available.
-
-4. Select **Enable JIT on 1 VM**. option on the far right of the **Virtual machines** section.
-
-5. On the **JIT VM access configuration** blade, on the far right of the row referencing the port **22**, click the ellipsis button and then click **Delete**.
-
-   ![image](../images/22.png)
-
-6. On the **JIT VM access configuration** blade, click **Save**.
-
-    >**Note**: Monitor the progress of configuration by clicking on the **Notifications** icon in the toolbar and viewing the **Notifications** blade. 
-
-    >**Note**: It can take some time for the implementation of recommendations in this lab to be reflected by Secure Score. Periodically check the Secure Score to determine the impact of implementing these features. 
-
->**Results:** You have on-boarded Microsoft Defender for Cloud and implemented virtual machine recommendations. 
-
->**Note**: Do not remove the resources from this lab as they are needed for the Azure Sentinel lab.
-
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="b6cace8a-4562-4975-863b-5feceb7b1a70" />
  
