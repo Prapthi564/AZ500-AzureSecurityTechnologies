@@ -34,37 +34,41 @@ In this exercise, you will deploy infrastructure using an ARM template, configur
 
 In this task, you will deploy an Azure VM, which will automatically install Visual Studio 2019 and SQL Server Management Studio 2019 as part of the deployment.
 
-1. In the Azure portal, in the **Search resources, services, and docs** text box at the top of the Azure portal page, type **Deploy a custom template** and press the **Enter** key.
+1. In the Azure portal, in the **Search resources, services, and docs** text box at the top of the Azure portal page, type **Deploy a custom template (1)** and select **Deploy a custom template (2)**
+
+     ![image](../images/az7l1.png)
 
 1. On the **Custom deployment** blade, click the **Build your own template in the editor** option.
 
      ![image](../images/Custom_Template.png)
 
-1. On the **Edit template** blade, click **Load file (1)**, locate the **C:\\AllFiles\\AZ500-AzureSecurityTechnologies-lab-files\\Allfiles\\Labs\\10\\az-500-10_azuredeploy.json (2)** file and click **Open**.
+1. On the **Edit template** blade, click **Load file (1)**, locate the  `C:\AllFiles\AZ500-AzureSecurityTechnologies-lab-files\Allfiles\Labs\10` **(2)** then select **az-500-10_azuredeploy.json (3)** file and click **Open (4)**.
 
-     ![image](../images/Lab-10_Ex1_Task1.png)
+     ![image](../images/az7l3.png)
 
-1. On the **Edit template** blade, click **Save (3)**.
+1. On the **Edit template** blade, click **Save**.
 
-1. On the **Custom deployment** blade, under **Deployment Scope** ensure that the following settings are configured (leave any others with their default values):
+1. On the **Custom deployment** blade, under **Deployment Scope** ensure that the following settings are configured (leave any others with their default values) and click the **Review + create (6)** button:
 
    |Setting|Value|
    |---|---|
-   |Subscription|Let it be default|
-   |Resource group|Select resource group with name **AZ500LAB07-<inject key="DeploymentID"></inject>**|
-   |Location|**It will automatically fetch resource group location and set it for your deployment**|
-   |Admin Username|**Student**|
-   |Admin Password|**Pa55w.rd1234**|
+   |Subscription|Let it be default **(1)**|
+   |Resource group|Select resource group with name **AZ500LAB07-<inject key="DeploymentID"></inject> (2)**|
+   |Location|**It will automatically fetch resource group location and set it for your deployment (3)**|
+   |Admin Username|**Student (4)**|
+   |Admin Password|`Pa55w.rd1234` **(5)**|
    
+    ![image](../images/az7l4.png)  
+
     >**Note**: While you can change the administrative credentials used for logging on to the Virtual Machine, you don't have to.
 
     >**Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
 
-1. Click the **Review + create** button, and confirm the deployment by clicking the **Create** button. 
+1. Confirm the deployment by clicking the **Create** button. 
 
     >**Note**: This initiates the deployment of the Azure VM and Azure SQL Database required for this lab. 
 
-    >**Note**: Do not wait for the ARM template deployment to be completed, continue on to the next exercise. The deployment might take up to **20-25 minutes**. 
+    >**Note**: **Do not wait for the ARM template deployment to be completed, continue on to the next exercise. The deployment might take up to** `20-25 minutes`. 
 
     > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
     > - Hit the Validate button for the corresponding task.If you receive a success message, you can proceed to the next task. 
@@ -106,6 +110,8 @@ In this task, you will create an Azure Key Vault resource. You will also configu
     ```
 1. The output of the last command will display the vault name and the vault URI. The vault URI is in the format `https://<vault_name>.vault.azure.net/`
 
+     ![image](../images/az7l5.png)
+
 1. Close the Cloud Shell pane. 
 
 1. In the Azure portal, in the **Search resources, services, and docs** text box at the top of the Azure portal page, type **Resource groups** and press the **Enter** key.
@@ -134,7 +140,7 @@ In this task, you will create an Azure Key Vault resource. You will also configu
     |Secret permissions|click **Select all** resulting in total of **7 selected** permissions|
     |Certification permissions|click **Select all** resulting in total of **15 selected** permissions and then click **Next**|
     |Under Principal tab|Search and select your user account 
-     i.e. <inject key="AzureAdUserEmail" enableCopy="false"/>, on the **Principal** blade, and click **Next**|
+     i.e. <inject key="AzureAdUserEmail"></inject>, on the **Principal** blade, and click **Next**|
     |Application (optional)|click **Next**|
     |Review + create|click **Create**|
 
@@ -207,6 +213,8 @@ In this task, you will add a key to the Key Vault and view information about the
     Get-AZKeyVaultSecret -VaultName $kv.VaultName
     ```
 
+     ![image](../images/az7l6.png)    
+
 1. Minimize the Cloud Shell pane. 
 
 1. In the Azure portal, navigate back to the Key Vault blade. In the **Objects** section, click **Secrets**.
@@ -236,7 +244,9 @@ In this exercise, you will enable a client application to access Azure SQL Datab
 
 In this task, you will enable a client application to access the Azure SQL Database service. This will be done by setting up the required authentication and acquiring the Application ID and Secret that you will need to authenticate your application.
 
-1. In the Azure portal, in the **Search resources, services, and docs** text box at the top of the Azure portal page, type **App Registrations** and press the **Enter** key.
+1. In the Azure portal, in the **Search resources, services, and docs** text box at the top of the Azure portal page, type **App Registrations (1)** and select **App Registrations (2)**.
+
+     ![image](../images/az7l7.png)
 
 1. On the **App Registrations** blade, click **+ New registration**. 
 	
@@ -255,9 +265,11 @@ In this task, you will enable a client application to access the Azure SQL Datab
 
     >**Note**: Once the registration is completed, the browser will automatically redirect you to **sqlApp** blade. 
 
-1. On the **sqlApp** blade, identify the value of **Application (client) ID**. 
+1. On the **sqlApp** blade, identify the value of **Application (client) ID**. Record this value. You will need it in the next task.
 
-    >**Note**: Record this value. You will need it in the next task.
+     ![image](../images/az7l8.png)
+
+      >**Note**: **Record this value. You will need it in the next task**.
 
 1. On the **sqlApp** blade, in the **Manage** section, click **Certificates & secrets** under Manage.
 
@@ -265,22 +277,22 @@ In this task, you will enable a client application to access the Azure SQL Datab
 	
      ![image](../images/new-lab07-15.png)
 	
-1. In the **Add a client secret** pane, specify the following settings:
+1. In the **Add a client secret** pane, specify the following settings and then click **Add (3)** to update the application credentials.
 
     |Setting|Value|
     |----|----|
-    |Description|**Key1**|
-    |Expires|Select **365 days (12 months)**|
+    |Description|**Key1 (1)**|
+    |Expires|Select **365 days (12 months) (2)**|
 
-     ![image](../images/new-lab07-16.png)
-	
-1. Click **Add** to update the application credentials.
+     ![image](../images/az7l9.png)
 
-1. On the **sqlApp | Certificates & secrets** blade, identify the value of **Key1**.
+1. On the **sqlApp | Certificates & secrets** blade, identify the value of **Key1 (1)**. Record this value. You will need it in the next task.
 
-    >**Note**: Record this value. You will need it in the next task. 
+     ![image](../images/az7l10.png)
 
-    >**Note**: Make sure to copy the value *before* you navigate away from the blade. Once you do, it is no longer possible to retrieve its clear text value.
+      >**Note**: Record this value. You will need it in the next task. 
+
+      >**Note**: Make sure to copy the value *before* you navigate away from the blade. Once you do, it is no longer possible to retrieve its clear text value.
 
 ### Task 2: Create a policy allowing the application access to the Key Vault.
 
@@ -303,6 +315,8 @@ In this task, you will grant the newly registered app permissions to access secr
     $kvName
     ```
 
+     ![image](../images/az7l11.png)    
+
 1. In the PowerShell session within the Cloud Shell pane, run the following to grant permissions on the Key Vault to the application you registered in the previous task:
 
     ```powershell
@@ -314,11 +328,15 @@ In this task, you will grant the newly registered app permissions to access secr
 
 The ARM-template deployment in Exercise 1 provisioned an Azure SQL Server instance and an Azure SQL database named **medical**. You will update the empty database resource with a new table structure and select data columns for encryption
 
-1. In the Azure portal, in the **Search resources, services, and docs** text box at the top of the Azure portal page, type **SQL databases** and press the **Enter** key.
+1. In the Azure portal, in the **Search resources, services, and docs** text box at the top of the Azure portal page, type **SQL databases (1)** and select **SQL databases (2)**.
+
+     ![image](../images/az7l12.png)
 
 1. In the list of SQL databases, click the **medical(<randomsqlservername>)** entry.
 
-    >**Note**: If the database cannot be found, this likely means the deployment you initiated in Exercise 1 has not completed yet. You can validate this by browsing to the Azure Resource Group "AZ500LAB07" (or the name you chose), and selecting **Deployments** from the Settings pane.  
+     ![image](../images/az7l13.png)
+
+      >**Note**: If the database cannot be found, this likely means the deployment you initiated in Exercise 1 has not completed yet. You can validate this by browsing to the Azure Resource Group "AZ500LAB07" (or the name you chose), and selecting **Deployments** from the Settings pane.  
 
 1. On the SQL database blade, in the **Settings** section, click **Connection strings**. 
 
@@ -346,62 +364,79 @@ In this task, you log on to the Azure VM, which deployment you initiated in Exer
 
 In this task, you will connect to the SQL Database with SQL Server Management Studio and create a table. You will then encrypt two data columns using an autogenerated key from the Azure Key Vault. 
 
-1. In the Azure portal, navigate to the blade of the **medical** SQL database, in the **Essentials** section, identify the server name, and then, in the toolbar, click **Set server firewall**.  
+1. In the Azure portal, navigate to the blade of the **medical** SQL database, in the **Essentials** section, identify the server name, and **record the server name**. You will need the server name later in this task.
 
-    >**Note**: Record the server name. You will need the server name later in this task.
-	
+    ![image](../images/az7l14.png)    
+
+1. Then, in the toolbar, click **Set server firewall**.  
+
 	![image](../images/Lab-10_Ex3_Task5_1.png)
 	
-1. On the **Networking** blade, scroll down to **Firewall Rules**, click on **+Add a firewall rule (1)**, and specify the following settings and click **OK (3)**: 
-	
-	![image](../images/Lab-10_Ex3_Task5_2.png)
-	
+1. On the **Networking (1)** blade, scroll down to **Firewall Rules**, click on **+Add a firewall rule (2)**, and specify the following settings **(3)** and click **OK (4)**: 
+
     |Setting|Value|
     |---|---|
     |Rule Name|**Allow Mgmt VM (2)**|
     |Start IP|Enter the Public IP Address of the az500-10-vm1|
     |End IP|Enter the Public IP Address of the az500-10-vm1|
 
+    ![image](../images/az7l15.png)    
+
 1. Click **Save** to save the change and close the confirmation pane. 
 
     >**Note**: This modifies the server firewall settings, allowing connections to the medical database from the Azure VM's public IP address you deployed in this lab.
 
-1. Navigate back to the **az500-10-vm1** blade, click **Overview**, next click **Connect** and, in the drop-down menu, click **Connect**.
+1. Navigate back to the **az500-10-vm1** blade, click **Overview**, next click **Connect (1)** and, in the drop-down menu, click **Connect (2)**.
+
+    ![image](../images/az7l16.png) 
 	
-1. Click **Download RDP File** under Native RDP tab and use it to connect to the **az500-10-vm1** Azure VM via Remote Desktop. Select **Keep** to download the RDP file. Open the RDP file and select **Connect**. When prompted to authenticate, provide the following credentials and click **Ok**. In the pop that follows, click on **Yes**.
+1. Click **Download RDP File** under Native RDP tab and use it to connect to the **az500-10-vm1** Azure VM via Remote Desktop. 
+
+    ![image](../images/az7l17.png) 
+
+1. Select **Keep** to download the RDP file. 
+
+1. Click on **Open file** to open the RDP file.
+
+1. Select **Connect**.
 	
-	![image](../images/Download_RDP.png)
+1. When prompted to authenticate, provide the following credentials and click **Ok**. 
 	
     |Setting|Value|
     |---|---|
-    |User name|**Student**|
+    |User name|**.\Student**|
     |Password|**Pa55w.rd1234**|
+
+1. In the pop that follows, click on **Yes**.    
 
     >**Note**: Wait for the Remote Desktop session and **Server Manager** to load. Close Server Manager. 
 
     >**Note**: The remaining steps in this lab are performed within the Remote Desktop session to the **az500-10-vm1** Azure VM. 
 
-1. Click **Start**, in the **Start** menu, expand the **Microsoft SQL Server Tools 20** folder, and click the **SQL Server Management Studio 20** menu item.
+1. Click **Start (1)**, in the **Start** menu, expand the **Microsoft SQL Server Tools 21 (2)** folder, and click the **SQL Server Management Studio 21 (3)** menu item.
 
-1. In the **Connect to Server** dialog box, specify the following settings: 
+    ![image](../images/az7l18.png) 
+
+1. Select **Skip and add account later**.
+
+    ![image](../images/az7l19.png) 
+
+1. In the **Connect to Server** dialog box, specify the following settings and then **Connect (5)**:
 
     |Setting|Value|
     |---|---|
-    |Server Type|**Database Engine**|
-    |Server Name|the server name you identified earlier in this task|
-    |Authentication|**SQL Server Authentication**|
-    |Login|**Student**|
-    |Password|**Pa55w.rd1234**|
+    |Server Name|the server name you identified earlier in this task **(1)**|
+    |Authentication|**SQL Server Authentication (2)**|
+    |Login|**Student (3)**|
+    |Password|**Pa55w.rd1234 (4)**|
 
-	![image](../images/Lab-10_Ex3_Task5_3.png)
+    ![image](../images/az7l20.png) 
 	
-1. In the **Connect to Server** dialog box, click **Connect**.
-
 1. Within the **SQL Server Management Studio** console, in the **Object Explorer** pane, expand the **Databases** folder.
 
-1. In the **Object Explorer** pane, right-click the **medical** database and click **New Query**.
+1. In the **Object Explorer** pane, right-click the **medical (1)** database and click **New Query (2)**.
 	
-	![image](../images/Lab-10_Ex3_Task5_4.png)
+    ![image](../images/az7l21.png) 
 	
 1. Paste the following code into the query window and click **Execute**. This will create a **Patients** table.
 
