@@ -438,7 +438,7 @@ In this task, you will connect to the SQL Database with SQL Server Management St
 	
     ![image](../images/az7l21.png) 
 	
-1. Paste the following code into the query window and click **Execute**. This will create a **Patients** table.
+1. Paste the following code into the query window **(1)** and click **Execute (2)**. This will create a **Patients** table.
 
      ```sql
      CREATE TABLE [dbo].[Patients](
@@ -454,17 +454,48 @@ In this task, you will connect to the SQL Database with SQL Server Management St
 		[BirthDate] [date] NOT NULL 
      PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
      ```
-1. After the table is created successfully, in the **Object Explorer** pane, expand the **medical** database node. Now expand the **Tables** node and right-click the **dbo.Patients** node, and click **Encrypt Columns**. 
 
-    >**Note**: This will initiate the **Always Encrypted** wizard.
+      ![image](../images/az7l22.png) 
+
+1. After the table is created successfully, in the **Object Explorer** pane, expand the **medical (1)** database node. Now expand the **Tables (2)** node and right-click the **dbo.Patients (3)** node, and click **Always Encrypted (4)** wizard 
+
+    ![image](../images/az7l23.png) 
 
 1. On the **Introduction** page, click **Next** twice.
 
-1. On the **Column Selection** page, select the **SSN** and **Birthdate** columns, set the **Encryption Type** of the **SSN** column to **Deterministic** and of the **Birthdate** column to **Randomized**, and click **Next**.
-	
-    >**Note**: While performing the encryption if any error thrown like **Exception has been thrown by the target of an innvocation** related to **Rotary(Microsoft.SQLServer.Management.ServiceManagement)** then make sure the **Key Permission's** values of **Rotation Policy Operations** are **unchecked**, if not in the Azure portal navigate to the **Key Vault** >> **Access Policies** >> **Key Permissions** >> Uncheck all the values under the **Rotation Policy Operations** >> Under **Privileged Key Operations** >> Uncheck **Release**.	
+    ![image](../images/az7l24.png)
 
-1. On the **Master Key Configuration** page, select **Azure Key Vault**, click **Sign in**. When prompted, authenticate by using the same user account you used to provision the Azure Key Vault instance earlier in this lab, ensure that Key Vault appears in the **Select an Azure Key Vault** drop-down list, and click **Next**.
+1. On the **Column Selection** page, select the **SSN (1)** and **Birthdate (2)** columns, set the **Encryption Type** of the **SSN** column to **Deterministic (3)** and of the **Birthdate** column to **Randomized (4)**, and click **Next (5)**.
+
+    ![image](../images/az7l26.png)
+	
+     >**Note**: While performing the encryption if any error thrown like **Exception has been thrown by the target of an innvocation** related to **Rotary(Microsoft.SQLServer.Management.ServiceManagement)** then make sure the **Key Permission's** values of **Rotation Policy Operations** are **unchecked**, if not in the Azure portal navigate to the **Key Vault** >> **Access Policies** >> **Key Permissions** >> Uncheck all the values under the **Rotation Policy Operations** >> Under **Privileged Key Operations** >> Uncheck **Release**.	
+
+1. Select **Next**.     
+
+1. On the **Master Key Configuration** page, select **Azure Key Vault (1)**, click **Change user (2)**.
+
+    ![image](../images/az7l27.png)
+
+1. When prompted, authenticate by using the same user account you used to provision the Azure Key Vault instance earlier in this lab.
+
+   - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
+ 
+   - **Password:** <inject key="AzureAdUserPassword"></inject>
+
+1. Select **Sign in to this App only**.
+
+1. Select **OK**.
+
+    ![image](../images/az7l28.png)
+
+1. Select **Done**.
+
+    ![image](../images/az7l29.png)
+
+1. Select the **Tenant name (1)**, **Subscrptio name (2)**. Ensure that Key Vault appears in the **Select an Azure Key Vault** drop-down list **(3)**, and click **Next (4)**.
+
+    ![image](../images/az7l30.png)
 
 1. On the **Run Settings** page, click **Next**.
 	
@@ -482,29 +513,60 @@ In this task, you will connect to the SQL Database with SQL Server Management St
 
 In this exercise, you will run a data-driven application to demonstrate how Azure Key Vault is used for encrypting an Azure SQL database, showcasing how to securely manage encryption keys for protecting data at rest.
 
-### Task 1: Run a data-driven application to demonstrate the use of Azure Key Vault in encrypting the Azure SQL database
+### Task 1: Task 1: Install Visual Studio 2022
+
+1. From the RDP session to the **az500-10-vm1**, Open **Server Manager (2)** from the task bar, select **Local Servers (3)**. Select **On (3)** on **IE Enhanced Security Configuration**.  Set **IE Enhanced Security Configuration** to **Off (4)** and then **Ok (5)**
+
+    ![image](../images/az7l32.png)
+
+1. Make sure et **IE Enhanced Security Configuration** to **Off**.
+
+    ![image](../images/az7l33.png)
+
+1. From the Start button, search for **Visual Studio Installer (1)** and then select it **(2)**.    
+
+    ![image](../images/az7l37png.png)
+
+1. Navigate to **Available (1)** tab, scroll down and click on **Install (2)** for **Visual Studio Community 2022**.
+
+    ![image](../images/az7l38.png)
+
+1. Select **ASP.NET and web developmemt (1)** and **Azure Developement** checkbox and then select **Install (2)**.
+
+    ![image](../images/az7l36.png)
+
+1. Wait for the Workload installation to complete. it might take around `10-15` mins. Please wait until its done.
+
+
+### Task 2: Run a data-driven application to demonstrate the use of Azure Key Vault in encrypting the Azure SQL database
 
 You will create a Console application using Visual Studio to load data into the encrypted columns and then access that data securely using a connection string that accesses the key in the Key Vault.
 
-1. From the RDP session to the **az500-10-vm1**, launch **Visual Studio 2019** from the **Start menu**.
+1. Once the Visual Studio is ready, click on **Skip and add account later**.
 
-1. Switch to the window displaying Visual Studio 2019 welcome message, click the **Sign in** button and, when prompted, provide the credentials you used to authenticate to the Azure subscription you are using in this lab. Now click **Start Visual studio**.
+    ![image](../images/az7l40.png)
+
+1. Now click **Start Visual studio**.
 
 1. On the **Get started** page, click **Create a new project**. 
 
-1. In the list of project templates, search for **Console App (.NET Framework)**, in the list of results, click **Console App (.NET Framework)** for **C#**, and click **Next**.
+1. In the list of project templates, search for **Console App (.NET Framework) (1)**, in the list of results, click **Console App (.NET Framework) (2)** for **C#**, and click **Next (3)**.
 	
-     ![image](../images/new-lab07-28.png)
+    ![image](../images/az7l41.png)
 	
-1. On the **Configure your new project** page, specify the following settings (leave other settings with their default values) and click on **Create**.
+1. On the **Configure your new project** page, specify the following settings (leave other settings with their default values) and click on **Create (4)**.
 
     |Setting|Value|
     |---|---|
-    |Project name|**OpsEncrypt**|
-    |Solution name|**OpsEncrypt**|
-    |Framework|**.NET Framework 4.7.2**|
+    |Project name|**OpsEncrypt (1)**|
+    |Solution name|**OpsEncrypt (2)**|
+    |Framework|**.NET Framework 4.7.2 (3)**|
+
+    ![image](../images/az7l42.png)    
 	
-1. In the Visual Studio console, click the **Tools** menu, in the drop-down menu, click **NuGet Package Manager**, and, in the cascading menu, click **Package Manager Console**.
+1. In the Visual Studio console, click the **Tools (1)** menu, in the drop-down menu, click **NuGet Package Manager (2)**, and, in the cascading menu, click **Package Manager Console (3)**.
+
+    ![image](../images/az7l44.png) 
 
 1. In the **Package Manager Console** pane, run the following to install the first required **NuGet** package:
 
@@ -517,20 +579,30 @@ You will create a Console application using Visual Studio to load data into the 
     ```powershell
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
+
+     >**Note**: If you recieve any error at last please ignore.
 	
 1. Minimize the RDP session to your Azure virtual machine. In Labvm Server then navigate to **C:\AllFiles\AZ500-AzureSecurityTechnologies-lab-files\Allfiles\Labs\10\program.cs**, open it in Notepad, and copy its content into Clipboard.
 
 1. Return to the RDP session, and in the Visual Studio console, in the **Solution Explorer** window, click **Program.cs** and replace its content with the code you copied into Clipboard.
+
+    ![image](../images/az7l45.png)
 	
-1. In the Visual Studio window, in the **Program.cs** pane, in line 15, replace the `<connection string noted earlier>` placeholder with the Azure SQL database **ADO.NET** connection string you recorded earlier in the lab. In the connection string, replace the `{your_password}` placeholder, with `Pa55w.rd1234`. If you saved the string on the lab computer, you may need to leave the RDP session to copy the ADO string, then return to the Azure virtual machine to paste it in.
+    - In the Visual Studio window, in the **Program.cs** pane, in line 15, replace the `<connection string noted earlier>` placeholder with the Azure SQL database **ADO.NET** connection string you recorded earlier in the lab. In the connection string, replace the `{your_password}` placeholder, with `Pa55w.rd1234`. If you saved the string on the lab computer, you may need to leave the RDP session to copy the ADO string, then return to the Azure virtual machine to paste it in.
 
-1. In the Visual Studio window, in the **Program.cs** pane, in line 16, replace the `<client id noted earlier>` placeholder with the value of **Application (client) ID** of the registered app you recorded earlier in the lab. 
+    - In the Visual Studio window, in the **Program.cs** pane, in line 16, replace the `<client id noted earlier>` placeholder with the value of **Application (client) ID** of the registered app you recorded earlier in the lab. 
 
-1. In the Visual Studio window, in the **Program.cs** pane, in line 17, replace the `<key value noted earlier>` placeholder with the value of **Key1** of the registered app you recorded earlier in the lab. 
+    - In the Visual Studio window, in the **Program.cs** pane, in line 17, replace the `<key value noted earlier>` placeholder with the value of **Key1** of the registered app you recorded earlier in the lab. 
+
+      ![image](../images/az7l46.png)    
 
 1. In the Visual Studio console, click the **Start** button to initiate the build of the console application and start it.
 
+    ![image](../images/az7l47.png)
+
 1. The application will start a Command Prompt window. When prompted for password, type **Pa55w.rd1234** to connect to Azure SQL Database. 
+
+    ![image](../images/az7l48.png)
 
 1. Leave the console app running and switch to the **SQL Management Studio** console. 
 
@@ -542,13 +614,17 @@ You will create a Console application using Visual Studio to load data into the 
     SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
     ```
 
+     ![image](../images/az7l49.png)    
+
 1. Switch back to the console application where you are prompted to enter a valid SSN. This will query the encrypted column for the data. At the Command Prompt, type the following and press the Enter key:
 
     ```cmd
     999-99-0003
     ```
 
-    >**Note**: Verify that the data returned by the query is not encrypted.
+     ![image](../images/az7l50.png)    
+
+     >**Note**: Verify that the data returned by the query is not encrypted.
 
 1. To terminate the console app, press the Enter key.
 	
