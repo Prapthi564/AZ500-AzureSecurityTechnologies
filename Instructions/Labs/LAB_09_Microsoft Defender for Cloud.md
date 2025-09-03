@@ -21,7 +21,7 @@ In this lab, you will complete the following exercise:
 
 ![image](../images/archtech9.png) 
 
-# Exercise 1: Implement Microsoft Defender for Cloud
+## Exercise 1: Implement Microsoft Defender for Cloud
 
 In this exercise, you will complete the following tasks:
 
@@ -29,7 +29,7 @@ In this exercise, you will complete the following tasks:
 - Task 2: Review the Microsoft Defender for Cloud recommendations
 - Task 3: Implement the Microsoft Defender for Cloud recommendation to enable Just in time VM Access
 
-## Task 1: Configure Microsoft Defender for Cloud
+### Task 1: Configure Microsoft Defender for Cloud
 
 In this task, you will on-board and configure Microsoft Defender for Cloud.
 
@@ -49,29 +49,70 @@ In this task, you will on-board and configure Microsoft Defender for Cloud.
    
     ![image](../images/br21.png) 
 
-## Task 2: Review the Microsoft Defender for Cloud recommendation
+## Task 2: Implement the Microsoft Defender for Cloud recommendation to enable Just in time VM Access
 
-In this task, you will review the Microsoft Defender for Cloud recommendations. 
+In this task, you will implement the Microsoft Defender for Cloud recommendation to enable Just in time VM Access on the virtual machine.
 
-1. In the Azure portal, navigate back to the **Microsoft Defender for Cloud \| Overview** blade. 
+1. In the search box at the top of the portal, enter **virtual machines**. Select **Virtual machines** in the search results.
 
-1. On the **Microsoft Defender for Cloud \| Overview** blade, click on **Security posture** tile in the left navigation pane and review scores.
+1. Select **myVM**.
 
-    >**Note**: Record the current score if it is available.
+   ![image](../images/br23.png)
 
-1. Navigate back to the **Microsoft Defender for Cloud \| Overview** blade, select **Assessed resources**.
+1. Select **Configuration (1)**from the Settings section of **myVM**. Under Just-in-time VM access, select **Enable just-in-time (2)**.
 
-   ![image](../images/AZ-500-assesesresources.png) 
+   ![image](../images/br24.png)
 
-1. On the **Inventory** blade, select the **myVM** entry.
+1. Under Just-in-time VM access, click on the link that reads **Open Microsoft Defender for Cloud**.
 
-    >**Note**: You might have to wait a few minutes and refresh the browser page for the entry to appear.
+   ![image](../images/br25.png)
+
+1. By default, just-in-time access for the VM uses these settings:
+
+   - Windows machines
+   
+     - RDP port: 3389
+     - Maximum allowed access: Three hours
+     - Allowed source IP addresses: Any
+
+   - Linux machines
+     - SSH port: 22
+     - Maximum allowed access: Three hours
+     - Allowed source IP addresses: Any
+        
+1. By default, just-in-time access for the VM uses these settings:
+
+   - From the **Configured** tab, right-click on the VM to which you want to add a port, and select **edit**.
+
+     ![image](../images/br27.png)   
+
+   - Under **JIT VM access configuration,** you can either edit the existing settings of an already protected port or add a new custom port.
+   - When you've finished editing the ports, select **Save.**   
+
+### Task 3: Request access to a JIT-enabled VM from the Azure virtual machine's connect page.
+
+>**Note**: When a VM has a JIT enabled, you have to request access to connect to it. You can request access in any of the supported ways, regardless of how you enabled JIT.
+   
+1. In the Azure portal, open the virtual machines pages.
+
+2. Select the VM to which you want to connect, and open the **Connect** page.
+
+   - Azure checks to see if JIT is enabled on that VM.
+
+        - If JIT isn't enabled for the VM, you're prompted to enable it.
     
-1. On the **Resource health** blade, on the **Recommendations** tab, review the list of recommendations for **myVM**.
+        - If JIT is enabled, select **Request access** to pass an access request with the requesting IP, time range, and ports that were configured for that VM.
+    
 
-## Task 3: Implement the Microsoft Defender for Cloud recommendation to enable Just in time VM Access
 
-In this task, you will implement the Microsoft Defender for Cloud recommendation to enable Just in time VM Access on the virtual machine. 
+
+
+
+
+
+
+
+
 
 1. In the Azure portal, navigate back to the **Microsoft Defender for Cloud \| Overview** blade, from the left navigation pane under the **Cloud Security** section select **Workload protections**.
 
